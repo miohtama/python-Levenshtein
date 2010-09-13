@@ -1,0 +1,12 @@
+============
+ Changelog
+============
+
+10.1 - 10.2
+-----------
+
+* Made python-Lehvenstein Git compatible and use setuptools for PyPi upload
+
+* Created HISTORY.txt and made README reST compatible
+
+
