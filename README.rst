@@ -1,5 +1,11 @@
 .. contents ::
 
+Maintainer needed
+-------------------
+
+I (Mikko Ohtamaa) am not currently maintaining this code. I just pulled in to Github for general good (was not available in public repo before).
+So if you file any issues I won't be looking into them.
+
 Introduction
 ------------
 
