@@ -70,7 +70,8 @@ Source code
 Authors
 -------
 
-* Maintainer: Mikko Ohtamaa <mikko at mfabrik.com> 
+* Maintainer: `Mikko Ohtamaa <http://opensourcehacker.com>`_ - I am not actively doing anything
+  for this, please feel free take over PyPi and Github administration
 
 * David Necas (Yeti) <yeti at physics.muni.cz>
 
