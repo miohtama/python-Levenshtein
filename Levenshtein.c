@@ -99,6 +99,27 @@
 #include <Python.h>
 #endif /* NO_PYTHON */
 
+#if PY_MAJOR_VERSION >= 3
+#define PyString_Type PyBytes_Type
+#define PyString_GET_SIZE PyBytes_GET_SIZE
+#define PyString_AS_STRING PyBytes_AS_STRING
+#define PyString_Check PyBytes_Check
+#define PyString_FromStringAndSize PyBytes_FromStringAndSize
+#define PyString_InternFromString PyUnicode_InternFromString
+#define PyInt_AS_LONG PyLong_AsLong
+#define PyInt_FromLong PyLong_FromLong
+#define PyInt_Check PyLong_Check
+#define PY_INIT_MOD(module, name, doc, methods) \
+        static struct PyModuleDef moduledef = { \
+            PyModuleDef_HEAD_INIT, name, doc, -1, methods, }; \
+        module = PyModule_Create(&moduledef);
+    #define PY_MOD_INIT_FUNC_DEF(name) PyObject* PyInit_##name(void)
+#else
+    #define PY_INIT_MOD(module, name, doc, methods) \
+            module = Py_InitModule3(name, methods, doc);
+    #define PY_MOD_INIT_FUNC_DEF(name) void init##name(void)
+#endif /* PY_MAJOR_VERSION */
+
 #include <assert.h>
 #include "Levenshtein.h"
 
@@ -2020,13 +2041,12 @@ subtract_edit_py(PyObject *self, PyObject *args)
 }
 
 
-void
-initLevenshtein(void)
+PY_MOD_INIT_FUNC_DEF(Levenshtein)
 {
   PyObject *module;
   size_t i;
 
-  module = Py_InitModule3("Levenshtein", methods, Levenshtein_DESC);
+  PY_INIT_MOD(module, "Levenshtein", Levenshtein_DESC, methods)
   /* create intern strings for edit operation names */
   if (opcode_names[0].pystring)
     abort();
@@ -2036,6 +2056,9 @@ initLevenshtein(void)
     opcode_names[i].len = strlen(opcode_names[i].cstring);
   }
   lev_init_rng(0);
+# if PY_MAJOR_VERSION >= 3
+  return module;
+# endif
 }
 /* }}} */
 #endif /* not NO_PYTHON */
