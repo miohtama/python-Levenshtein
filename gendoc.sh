@@ -8,7 +8,7 @@ fi
 if test "x$genextdoc" = x; then
     cat <<EOF
 Need $g to generate the documentation.
-Fetch it at http://trific.ath.cx/Ftp/python/$g
+Fetch it at https://github.com/joncasdam/python-Levenshtein/blob/master/$g
 EOF
 else
     python $genextdoc Levenshtein NEWS
