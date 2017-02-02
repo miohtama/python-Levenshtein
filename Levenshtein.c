@@ -407,7 +407,7 @@ static PyObject* subtract_edit_py(PyObject *self, PyObject *args);
   "The result is a list of triples (operation, spos, dpos), where\n" \
   "operation is one of `equal', `replace', `insert', or `delete';  spos\n" \
   "and dpos are position of characters in the first (source) and the\n" \
-  "second (destination) strings.  These are operations on signle\n" \
+  "second (destination) strings.  These are operations on single\n" \
   "characters.  In fact the returned list doesn't contain the `equal',\n" \
   "but all the related functions accept both lists with and without\n" \
   "`equal's.\n" \
