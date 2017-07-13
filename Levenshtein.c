@@ -4119,7 +4119,7 @@ lev_quick_median(size_t n,
   double *symset;
   double ml, wl;
 
-  /* first check whether the result would be an empty string 
+  /* first check whether the result would be an empty string
    * and compute resulting string length */
   ml = wl = 0.0;
   for (i = 0; i < n; i++) {
@@ -4312,7 +4312,7 @@ lev_u_quick_median(size_t n,
   HQItem *symmap;
   double ml, wl;
 
-  /* first check whether the result would be an empty string 
+  /* first check whether the result would be an empty string
    * and compute resulting string length */
   ml = wl = 0.0;
   for (i = 0; i < n; i++) {
@@ -6434,7 +6434,7 @@ lev_editops_matching_blocks(size_t len1,
     nmb++;
 
   /* fill the info */
-  mb = mblocks = (LevMatchingBlock*)malloc(nmb*sizeof(LevOpCode));
+  mb = mblocks = (LevMatchingBlock*)malloc(nmb*sizeof(LevMatchingBlock));
   if (!mblocks) {
     *nmblocks = (size_t)(-1);
     return NULL;
@@ -6541,7 +6541,7 @@ lev_opcodes_matching_blocks(size_t len1,
   }
 
   /* convert */
-  mb = mblocks = (LevMatchingBlock*)malloc(nmb*sizeof(LevOpCode));
+  mb = mblocks = (LevMatchingBlock*)malloc(nmb*sizeof(LevMatchingBlock));
   if (!mblocks) {
     *nmblocks = (size_t)(-1);
     return NULL;
