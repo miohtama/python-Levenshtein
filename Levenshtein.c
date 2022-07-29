@@ -75,7 +75,7 @@
  *   BUT: The algorithm seems to be advantageous only in the case of very
  *   large sets -- if my estimates are correct (the article itself is quite
  *   `asymptotic'), say 10^5 at least.  On smaller sets either one would get
- *   only an extermely rough median estimate, or the number of distance
+ *   only an extremely rough median estimate, or the number of distance
  *   computations would be in fact higher than in the dumb O(n^2) algorithm.
  *
  * - Improve setmedian() speed with triangular inequality, see:
@@ -123,7 +123,7 @@
 #include <assert.h>
 #include "Levenshtein.h"
 
-/* FIXME: inline avaliability should be solved in setup.py, somehow, or
+/* FIXME: inline availability should be solved in setup.py, somehow, or
  * even better in Python.h, like const is...
  * this should inline at least with gcc and msvc */
 #ifndef __GNUC__
@@ -2263,7 +2263,7 @@ lev_edit_distance(size_t len1, const lev_byte *string1,
   }
   else {
     /* in this case we don't have to scan two corner triangles (of size len1/2)
-     * in the matrix because no best path can go throught them. note this
+     * in the matrix because no best path can go through them. note this
      * breaks when len1 == len2 == 2 so the memchr() special case above is
      * necessary */
     row[0] = len1 - half - 1;
@@ -2442,7 +2442,7 @@ lev_u_edit_distance(size_t len1, const lev_wchar *string1,
   }
   else {
     /* in this case we don't have to scan two corner triangles (of size len1/2)
-     * in the matrix because no best path can go throught them. note this
+     * in the matrix because no best path can go through them. note this
      * breaks when len1 == len2 == 2 so the memchr() special case above is
      * necessary */
     row[0] = len1 - half - 1;
@@ -5372,7 +5372,7 @@ lev_opcodes_check_errors(size_t len1, size_t len2,
   if (!nb)
     return 1;
 
-  /* check completenes */
+  /* check completeness */
   if (bops->sbeg || bops->dbeg
       || bops[nb - 1].send != len1 || bops[nb - 1].dend != len2)
     return LEV_EDIT_ERR_SPAN;
@@ -5627,7 +5627,7 @@ editops_from_cost_matrix(size_t len1, const lev_byte *string1, size_t off1,
   j = len2 - 1;
   p = matrix + len1*len2 - 1;
   while (i || j) {
-    /* prefer contiuning in the same direction */
+    /* prefer continuing in the same direction */
     if (dir < 0 && j && *p == *(p - 1) + 1) {
       pos--;
       ops[pos].type = LEV_EDIT_INSERT;
@@ -5816,7 +5816,7 @@ ueditops_from_cost_matrix(size_t len1, const lev_wchar *string1, size_t o1,
   j = len2 - 1;
   p = matrix + len1*len2 - 1;
   while (i || j) {
-    /* prefer contiuning in the same direction */
+    /* prefer continuing in the same direction */
     if (dir < 0 && j && *p == *(p - 1) + 1) {
       pos--;
       ops[pos].type = LEV_EDIT_INSERT;
